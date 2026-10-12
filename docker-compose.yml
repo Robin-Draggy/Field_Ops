@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: fieldops-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: fieldops
+      POSTGRES_PASSWORD: fieldops_dev_password
+      POSTGRES_DB: fieldops
+    ports:
+      - "5433:5432"
+    volumes:
+      - fieldops_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  fieldops_postgres_data:
